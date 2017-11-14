@@ -8,7 +8,6 @@
   $sports = json_decode(file_get_contents('Sports.json'), true);
 ?>
 
-
 <head>
   <title>Fan-Xelk</title>
   <meta charset="utf-8">
@@ -16,24 +15,36 @@
 </head>
 <body>
   <h1>fan-xelk</h1>
-  <form id='form'>
+  <form id='form' action="search.php" method="get">
     <label>Select a sport: </label>
     <select name="sport">
       <?php
       foreach ($sports['sport'] as $sport) {
-        echo '<option value="'.$sport.'">'.$sport.'</option>';
+        echo '<option value="'.$sport['title'].'">'.$sport['title'].'</option>';
       }
       ?>
     </select><br>
     <label>Select a season: </label>
     <select name="season">
-
+      <?php
+      foreach ($sports['sport'] as $sport) {
+        foreach ($sport['results'] as $season => $seasonjson) {
+          echo '<option value="'.$season.'">'.$season.'</option>';
+        }
+      }
+      ?>
     </select><br>
     <label>Select a search parameter: </label>
-    <select name="sport">
-
+    <select name="searchterm">
+      <?php
+      foreach ($sports['sport'] as $sport) {
+        foreach($sport['searchterms'] as $searchterm) {
+          echo '<option value="'.$searchterm.'">'.$searchterm.'</option>';
+        }
+      }
+      ?>
     </select><br>
-    <button>Search!</button>
+    <input type="submit" value="Search!"/>
   </form>
 
 </body>
