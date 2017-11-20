@@ -22,5 +22,8 @@ criteria. 10 pts
 
 f) IMPLEMENTED: Your PHP program is robust against missing or incorrect
 JSON fields/elements. 5 pts
+<<<<<<< HEAD
 
 http://cs.uky.edu/~ephe223/CS316/program4/fan-xelk/index.php
+=======
+>>>>>>> 542bb894a9e10e8d80ef513fec292625f74283db
